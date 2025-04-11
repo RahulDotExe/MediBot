@@ -40,15 +40,19 @@ def load_llm(huggingface_repo_id):
 # Step 2: Connect LLM with FAISS and Create chain
 
 CUSTOM_PROMPT_TEMPLATE = """
-Use the pieces of information provided in the context to answer user's question.
-If you dont know the answer, just say that you dont know, dont try to make up an answer. 
-Dont provide anything out of the given context
+You are a helpful medical assistant. Use the pieces of information provided in the context to answer the user's question.
+If you don't know the answer, just say that you don't know, don't try to make up an answer.
+Don't provide anything out of the given context.
+
+Previous conversation:
+{chat_history}
 
 Context: {context}
 Question: {question}
 
-Answer the question elaborately.
+Answer the query elaborately and politely.
 """
+
 
 def set_custom_prompt(custom_prompt_template):
     prompt=PromptTemplate(template=custom_prompt_template, input_variables=["context", "question"])

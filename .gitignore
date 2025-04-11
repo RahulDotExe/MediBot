@@ -3,3 +3,8 @@ Pipfile.lock
 venv/
 vectorstore/
 test.py
+venv/
+fixed-meditbot.py
+testbot.py
+fixed-meditbot1.py
+

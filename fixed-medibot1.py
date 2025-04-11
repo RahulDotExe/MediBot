@@ -127,11 +127,21 @@ def set_custom_prompt():
     Standalone question:"""
     condense_prompt = PromptTemplate.from_template(condense_template)
    
-    qa_template = """Use the context to answer the question. Be precise and professional.
-    
+    # Improved prompt template for medical responses
+    qa_template = """As a medical professional, provide accurate and concise information to the patient's question. 
+    Structure your response with clear bullet points (*) and use appropriate medical terminology.
+
     Chat History: {chat_history}
     Context: {context}
     Question: {question}
+
+    Answer guidelines:
+    1. Be precise and professional
+    2. Use bullet points for clarity
+    3. Reference sources when available
+    4. If unsure, state limitations
+    5. Recommend professional care when appropriate
+
     Answer:"""
     qa_prompt = PromptTemplate.from_template(qa_template)
    
@@ -213,7 +223,7 @@ def query_gemini(prompt, chat_history, context=None, sources=None):
                 f"[Doc {idx+1}] {doc['title']} (Page {doc['page']})"
                 for idx, doc in enumerate(sources)
             )
-        chat_history_text = "\n".join(chat_history)
+        
         full_prompt = f"""**Medical Response Task**
         
         **Question:** {prompt}
@@ -224,7 +234,7 @@ def query_gemini(prompt, chat_history, context=None, sources=None):
         {source_refs}
         
         **Chat History:**
-        {chat_history_text}
+        {"\n".join(chat_history)}
         
         **Response Requirements:**
         - Use medical terminology
