@@ -1,10 +1,10 @@
-.env
-Pipfile.lock
-venv/
-vectorstore/
-test.py
-venv/
-fixed-meditbot.py
-testbot.py
-fixed-meditbot1.py
 
+# Allow only specific files
+!medibot.py
+!README.md
+!create_memory_for_llm.py
+!create_memory_with_llm.py
+!requirements.txt
+
+# Ignore everything else
+*

@@ -1,72 +1,97 @@
-# ChatBot Project
 
-This repository contains a chatbot application designed to process and answer user queries using advanced language models and vector-based retrieval systems. The project leverages the LangChain framework, HuggingFace models, and FAISS for efficient document retrieval and embedding storage.
+# 🏥 MedAssistant: AI-Powered Medical Chatbot using RAG
 
-## Features
+MedAssistant is an AI-powered, real-time medical information assistant that leverages Retrieval-Augmented Generation (RAG) to provide accurate, context-aware responses using only trusted medical resources. This project addresses the critical issue of misinformation and delays in accessing verified medical content by offering a reliable, privacy-focused chatbot solution.
 
-- **PDF Document Processing**: Extracts and processes text from PDF files.
-- **Text Chunking**: Splits large documents into manageable chunks for better embedding and retrieval.
-- **Vector Embedding Storage**: Uses FAISS to store and retrieve vector embeddings.
-- **Customizable LLM Integration**: Supports HuggingFace models for generating responses.
-- **Streamlit UI**: Provides an interactive web-based interface for user interaction.
-- **Medical Chatbot**: A specialized chatbot for answering medical queries with context-based responses.
+## 🚀 Project Highlights
 
-## Project Structure
+- ✅ Uses only **verified offline source**: *Gale Encyclopedia of Medicine (PDF)*.
+- 🧠 Powered by **state-of-the-art language models**:
+    - `gemini-2.5-pro-exp-03-25` (Google Gemini)
+    - `deepseek/deepseek-v3-base:free` (HuggingFace)
+    - `sentence-transformers/all-MiniLM-L6-v2` (for embedding & similarity search)
+- 📦 Deployed via **Streamlit** for a simple, responsive web interface.
+- 🔎 Vector similarity search with **FAISS** for fast retrieval of context.
+- 🔐 Prioritizes **user privacy**, **speed**, and **accuracy**.
 
-- `create_memory_for_llm.py`: Script to process PDF files, create text chunks, and store embeddings in FAISS.
-- `create_memory_with_llm.py`: Script to integrate the FAISS database with a HuggingFace language model for query answering.
-- `medibot.py`: Streamlit-based application for interacting with the chatbot.
-- `test.py`: Script to verify HuggingFace authentication.
-- `.gitignore`: Specifies files and directories to ignore in version control.
-- `Pipfile`: Dependency management file for the project.
+---
 
-## Setup Instructions
+## 🧠 Motivation
 
-1. Clone the repository:
-    ```bash
-    git clone <repository-url>
-    cd ChatBot
-    ```
+Many people struggle to find verified and accurate medical information online, leading to delays, confusion, or even harm. MedAssistant offers a solution by combining AI with a trusted medical knowledge base in a user-friendly chatbot interface.
 
-2. Install dependencies using `pipenv`:
-    ```bash
-    pipenv install
-    ```
+---
 
-3. Create a `.env` file and add your HuggingFace token:
-    ```
-    HF_TOKEN=<your_huggingface_token>
-    ```
+## 🛠️ Tech Stack
 
-4. Place your PDF files in the `data/` directory.
+| Component             | Technology Used                            |
+|----------------------|---------------------------------------------|
+| Frontend             | Streamlit                                   |
+| Backend              | Python, FAISS, Langchain                    |
+| Embedding Model      | sentence-transformers/all-MiniLM-L6-v2     |
+| Language Models      | Gemini 2.5 Pro, DeepSeek v3 Base           |
+| Data Source          | Gale Encyclopedia of Medicine (PDF)         |
+| RAG Framework        | Custom RAG with chunked document retrieval  |
 
-5. Run the scripts:
-    - To process documents and create embeddings:
-      ```bash
-      pipenv run python create_memory_for_llm.py
-      ```
-    - To interact with the chatbot via Streamlit:
-      ```bash
-      pipenv run streamlit run medibot.py
-      ```
+---
 
-## Requirements
 
-- Python 3.13
-- HuggingFace account and API token
-- Dependencies listed in the `Pipfile`
 
-## Usage
+## ⚙️ How to Run the Project Locally
 
-- Use the `medibot.py` application to ask questions and receive context-aware responses.
-- Ensure the FAISS database is populated with embeddings before running the chatbot.
+1. **Clone the repository**
+     ```bash
+     git clone https://github.com/your-username/MediBot.git
+     cd MediBot
+     ```
 
-## License
+2. **Install dependencies**
+     Make sure Python 3.9+ is installed.
+     ```bash
+     pip install -r requirements.txt
+     ```
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+3. **Add the PDF**
+     Place `gale_medical_encyclopedia.pdf` inside the `data/` directory.
 
-## Acknowledgments
+4. **Run the Streamlit app**
+     ```bash
+     streamlit run app.py
+     ```
 
-- [LangChain](https://github.com/hwchase17/langchain)
-- [HuggingFace](https://huggingface.co/)
-- [FAISS](https://github.com/facebookresearch/faiss)
+---
+
+
+
+## 📌 Limitations
+
+- Only as reliable as the source PDF.
+- Does not give real-time advice or diagnosis.
+- Models depend on token limits (especially Gemini-based).
+
+---
+
+## 💡 Future Enhancements
+
+- Add multi-PDF or full offline database support.
+- Integrate audio/text-to-speech support for accessibility.
+- Allow model switching or user-controlled temperature settings.
+- Add user feedback and correction system.
+
+---
+
+## 🤝 Feedback & Contributions
+
+Have suggestions to improve this chatbot?  
+Feel free to open issues or suggest modifications. I’d love to hear from you and make MedAssistant even more helpful!
+
+## 📬 Contact
+
+
+- 🔗 [LinkedIn](https://www.linkedin.com/in/rahulsays)
+- 🐦 [Twitter](https://twitter.com/chillrahull)
+
+
+
+## Disclaimer: 
+MediBot is for educational use only and does not provide professional medical advice. Always consult a healthcare professional for medical concerns.
