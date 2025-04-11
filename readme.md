@@ -56,7 +56,7 @@ Many people struggle to find verified and accurate medical information online, l
 
 4. **Run the Streamlit app**
      ```bash
-     streamlit run app.py
+     streamlit run medibot.py
      ```
 
 ---
