@@ -8,7 +8,8 @@ MedAssistant is an AI-powered, real-time medical information assistant that leve
 - ✅ Uses only **verified offline source**: *Gale Encyclopedia of Medicine (PDF)*.
 - 🧠 Powered by **state-of-the-art language models**:
     - `gemini-2.5-pro-exp-03-25` (Google Gemini)
-    - `deepseek/deepseek-v3-base:free` (HuggingFace)
+    - `deepseek/deepseek-v3-base:free` (DeepSeek)
+    - `mistralai/Mistral-7B-Instruct-v0.3` (HuggingFace)
     - `sentence-transformers/all-MiniLM-L6-v2` (for embedding & similarity search)
 - 📦 Deployed via **Streamlit** for a simple, responsive web interface.
 - 🔎 Vector similarity search with **FAISS** for fast retrieval of context.
@@ -52,7 +53,10 @@ Many people struggle to find verified and accurate medical information online, l
      ```
 
 3. **Add the PDF**
-     Place `gale_medical_encyclopedia.pdf` inside the `data/` directory.
+     Place `gale_medical_encyclopedia.pdf` inside the `data/
+     ` directory.
+     
+     -🔗 [PDF](https://www.zuj.edu.jo/download/gale-encyclopedia-of-medicine-vol-2-2nd-ed-pdf/)
 
 4. **Run the Streamlit app**
      ```bash
